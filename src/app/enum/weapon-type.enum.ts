@@ -22,4 +22,5 @@ export enum WeaponType {
   Bomb,
   Magick,
   Heal,
+  Unarmed
 }
