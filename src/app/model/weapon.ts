@@ -3,6 +3,9 @@ import { Formula } from "../enum/formula.enum";
 
 export class Weapon {
   name: string;
+  japanese?: string;
+  original?: boolean;
+  zodiac?: boolean;
   weaponType: WeaponType;
   formula: Formula;
   attack: number;
@@ -10,6 +13,6 @@ export class Weapon {
   vitality: number;
   speed: number;
   ct: number;
-  criticalLate: number;
+  critical: number;
   // element: Element;
 }

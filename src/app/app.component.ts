@@ -14,6 +14,8 @@ import { Formula } from './enum/formula.enum';
 export class AppComponent  {
   public monsters: Character[] = [];
   public players: Character[] = [];
+  public attacker: Character;
+  public defender: Character;
 
   constructor (
     private characterService: CharacterService,
@@ -33,9 +35,6 @@ export class AppComponent  {
   ngOnInit() {
     this.getPlayers();
     this.getMonsters();
-  }
-
-  public calculate(attacker: Character, defender: Character): IResult {
     this.players[0].weapon = {
       name: "Iron Sword",
       weaponType: WeaponType.Sword,
@@ -45,8 +44,13 @@ export class AppComponent  {
       vitality: 0,
       speed: 0,
       ct: 0,
-      criticalLate: 5
+      critical: 5
     }
-    return this.calculateService.calculate(attacker, defender);
+    this.calculateService.attacker = this.players[0];
+    this.calculateService.defender = this.monsters[0];
+  }
+
+  public calculate(attacker: Character, defender: Character): IResult {
+    return this.calculateService.calculate();
   }
 }
