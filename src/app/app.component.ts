@@ -12,7 +12,6 @@ import { Formula } from './enum/formula.enum';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
-  name = 'Angular ' + VERSION.major;
   public monsters: Character[] = [];
   public players: Character[] = [];
 
